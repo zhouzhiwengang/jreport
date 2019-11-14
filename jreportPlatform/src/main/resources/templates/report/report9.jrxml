@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report9" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="38bce7b3-94a1-480e-afed-89238291c4d6">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="name" class="java.lang.String"/>
+	<parameter name="age" class="java.lang.String"/>
+	<parameter name="dept" class="java.lang.String"/>
+	<parameter name="gender" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<group name="Group1">
+		<groupHeader>
+			<band height="56">
+				<textField>
+					<reportElement x="231" y="26" width="219" height="30" uuid="42f2936c-bab3-4448-8b1d-6e1fb6cec790"/>
+					<textFieldExpression><![CDATA["以部门ID分组:" + $P{dept}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<title>
+		<band height="87" splitType="Stretch">
+			<textField>
+				<reportElement x="240" y="40" width="100" height="30" uuid="2c5cf2be-dbfd-4e55-bb2d-c1385898cdee"/>
+				<textElement textAlignment="Center">
+					<font fontName="微软雅黑" size="18" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement x="380" y="17" width="100" height="30" uuid="6a667c6f-d581-4179-a81a-f31dfea8566f"/>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="100" height="30" uuid="1eab3d0c-0de0-44ef-8b06-d8c62f0e8a08"/>
+				<textElement textAlignment="Center">
+					<font fontName="微软雅黑" size="18"/>
+				</textElement>
+				<text><![CDATA[Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="10" width="170" height="30" uuid="d9d65291-6eba-4311-86ac-52bf596aec60"/>
+				<textElement textAlignment="Center">
+					<font fontName="微软雅黑" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="10" width="100" height="30" uuid="5fb15377-56e8-413a-825a-756292afb3dc"/>
+				<textElement textAlignment="Center">
+					<font fontName="微软雅黑" size="18"/>
+				</textElement>
+				<text><![CDATA[Age:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="10" width="170" height="30" uuid="4bf0dc60-0ca4-4d2a-bd3b-e338b394b7c0"/>
+				<textElement textAlignment="Center">
+					<font fontName="微软雅黑" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{age}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="100" height="30" uuid="ef435095-9ea6-4a67-83fd-2ae275d38f54"/>
+				<textElement textAlignment="Center">
+					<font fontName="微软雅黑" size="18"/>
+				</textElement>
+				<text><![CDATA[Dept:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="40" width="170" height="30" uuid="82109a32-1dd5-43d8-9057-01718dceac0c"/>
+				<textElement>
+					<font fontName="微软雅黑" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dept}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="40" width="100" height="30" uuid="cd6ddb30-91a2-4ba2-93e0-00e854acd4e3"/>
+				<textElement textAlignment="Center">
+					<font fontName="微软雅黑" size="18"/>
+				</textElement>
+				<text><![CDATA[Gender:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="40" width="170" height="30" uuid="439c1eab-fd58-4e95-a191-ad0b42c37093"/>
+				<textElement>
+					<font fontName="微软雅黑" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{gender}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

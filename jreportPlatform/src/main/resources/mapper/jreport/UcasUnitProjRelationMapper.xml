@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzg.jreport.mapper.UcasUnitProjRelationMapper">
+  <resultMap id="BaseResultMap" type="com.zzg.jreport.domain.UcasUnitProjRelation">
+    <id column="sid" jdbcType="VARCHAR" property="sid" />
+    <result column="unit_proj_sid" jdbcType="VARCHAR" property="unitProjSid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sid, unit_proj_sid
+  </sql>
+  <!-- 功能查询条件  -->
+  <sql id="condition">
+  	<if test="sid != null and sid !=''">
+  	 	and sid = #{sid}
+  	</if>
+  	<if test="unitProjSid != null and unitProjSid !=''">
+  		and unit_proj_sid = #{unitProjSid}
+  	</if>
+  </sql>
+  <!-- 方法梳理  -->
+  <select id="selectAll" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ucas_unit_proj_relation
+    where 1 = 1
+    <include refid="condition"></include>
+  </select>
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ucas_unit_proj_relation
+    where sid = #{sid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ucas_unit_proj_relation
+    where sid = #{sid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zzg.jreport.domain.UcasUnitProjRelation">
+    insert into ucas_unit_proj_relation (sid, unit_proj_sid)
+    values (#{sid,jdbcType=VARCHAR}, #{unitProjSid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zzg.jreport.domain.UcasUnitProjRelation">
+    insert into ucas_unit_proj_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="unitProjSid != null">
+        unit_proj_sid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitProjSid != null">
+        #{unitProjSid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzg.jreport.domain.UcasUnitProjRelation">
+    update ucas_unit_proj_relation
+    <set>
+      <if test="unitProjSid != null">
+        unit_proj_sid = #{unitProjSid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sid = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzg.jreport.domain.UcasUnitProjRelation">
+    update ucas_unit_proj_relation
+    set unit_proj_sid = #{unitProjSid,jdbcType=VARCHAR}
+    where sid = #{sid,jdbcType=VARCHAR}
+  </update>
+</mapper>
