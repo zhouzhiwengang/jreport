@@ -180,5 +180,6 @@
 		<module>activity</module>
 		<module>Reptile</module>
 		<module>search</module>
+		<module>Drools</module>
 	</modules>
 </project>
