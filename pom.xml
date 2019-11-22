@@ -37,7 +37,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 			<!-- 移除springboot 自带日志框架log-back  -->
-	
 			 <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
@@ -181,5 +180,6 @@
 		<module>Reptile</module>
 		<module>search</module>
 		<module>Drools</module>
+		<module>hadoop-hdfs</module>
 	</modules>
 </project>
