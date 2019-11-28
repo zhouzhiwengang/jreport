@@ -183,5 +183,6 @@
 		<module>Drools</module>
 		<module>hadoop-hdfs</module>
 		<module>Transfer</module>
+		<module>Distributed-File</module>
 	</modules>
 </project>
