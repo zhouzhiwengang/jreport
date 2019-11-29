@@ -2,19 +2,23 @@ package com.zzg.file.controller;
 
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.alibaba.fastjson.JSONObject;
+import com.zzg.file.component.FileComponent;
 import com.zzg.file.domain.AuthUser;
 import com.zzg.file.service.AuthUserService;
 import com.zzg.jreport.common.controller.AbstractController;
 import com.zzg.jreport.common.page.PageData;
 import com.zzg.jreport.common.page.PageParam;
 import com.zzg.jreport.response.JreportResponse;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -28,6 +32,28 @@ public class AuthUserController extends AbstractController {
 
 	@Autowired
 	private AuthUserService service;
+	
+	// 分布式文件 master
+//	@Autowired
+//	private DistributedFile master;
+	
+	// 分布式文件 second
+//	@Autowired
+//	private DistributedFile second;
+	
+	// 分布式文件工具类
+	@Autowired
+	private FileComponent component;
+	
+	@ApiOperation(httpMethod = "POST", value = "分布式文件对象")
+	@RequestMapping(value = "/file", method = { RequestMethod.POST }, produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public JreportResponse file() {
+		String path = component.getFilePath();
+		System.out.println("path:" + path );
+		return JreportResponse.ok(path);
+		
+	}
 	
 	@ApiOperation(httpMethod = "POST", value = "用户对象保存")
 	@RequestMapping(value = "/insert", method = { RequestMethod.POST }, produces = "application/json;charset=UTF-8")

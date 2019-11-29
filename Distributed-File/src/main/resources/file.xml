@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aty="https://blog.csdn.net/zhouzhiwengang/schema/aty"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd 
+       https://blog.csdn.net/zhouzhiwengang/schema/aty
+	   https://blog.csdn.net/zhouzhiwengang/schema/aty.xsd">
+	   
+	   <aty:file id="master" name="master" path="C:\node\master" />
+	   <aty:file id="second" name="second" path="C:\node\second" />
+	   
+</beans>
