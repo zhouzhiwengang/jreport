@@ -9,7 +9,7 @@ public class FileConfig {
 	
 	@Bean
 	public FileComponent getFileComponent() {
-		FileComponent component = new FileComponent("192.168.1.74:2181", 3000, "/root");
+		FileComponent component = new FileComponent("192.168.1.74:2181", "test");
 		return component;
 	}
 

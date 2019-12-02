@@ -2,14 +2,14 @@ package com.zzg.file.controller;
 
 import java.util.List;
 import java.util.Map;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.alibaba.fastjson.JSONObject;
 import com.zzg.file.component.FileComponent;
 import com.zzg.file.domain.AuthUser;
@@ -18,7 +18,6 @@ import com.zzg.jreport.common.controller.AbstractController;
 import com.zzg.jreport.common.page.PageData;
 import com.zzg.jreport.common.page.PageParam;
 import com.zzg.jreport.response.JreportResponse;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -29,6 +28,8 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping("/api/auth/user")
 @Api(value = "用户Controlle", tags = "用户操作服务")
 public class AuthUserController extends AbstractController {
+	// 日志管理
+	private Logger logger = LoggerFactory.getLogger(AuthUserController.class);
 
 	@Autowired
 	private AuthUserService service;
@@ -49,7 +50,14 @@ public class AuthUserController extends AbstractController {
 	@RequestMapping(value = "/file", method = { RequestMethod.POST }, produces = "application/json;charset=UTF-8")
 	@ResponseBody
 	public JreportResponse file() {
-		String path = component.getFilePath();
+		String path = null;
+		try {
+			path = component.getFilePath();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error(e.getMessage());
+			e.printStackTrace();
+		}
 		System.out.println("path:" + path );
 		return JreportResponse.ok(path);
 		
